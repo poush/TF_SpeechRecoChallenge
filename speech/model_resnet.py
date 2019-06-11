@@ -117,7 +117,8 @@ def conv2d_fixed_padding(inputs, filters, kernel_size, strides,
   """Strided 2-D convolution with explicit padding."""
   # The padding is consistent and is based only on `kernel_size`, not on the
   # dimensions of `inputs` (as opposed to using `tf.layers.conv2d` alone).
-  if len(strides) > 1:
+  print(strides)
+  if strides > 1:
     inputs = fixed_padding(inputs, kernel_size, data_format)
 
   return tf.layers.conv2d(
